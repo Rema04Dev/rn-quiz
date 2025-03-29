@@ -1,20 +1,14 @@
 import { View } from "react-native";
 import { AnswerOption } from "./answer-option";
 import { Question } from "../types";
-import { useState } from "react";
 import { Card } from "./card";
+import { useQuiz } from "../providers/quiz-provider";
 
 type QuestionCard = {
     question: Question;
 };
 
 export function QuestionCard({ question }: QuestionCard) {
-    const [selectedOption, setSelectedOption] = useState<string | null>('');
-
-    const onOptionSelected = (value: string) => {
-        setSelectedOption(value);
-    };
-
     return (
         <Card title={question.title}>
             <View style={{ gap: 5 }}>
@@ -23,8 +17,6 @@ export function QuestionCard({ question }: QuestionCard) {
                         <AnswerOption
                             key={item}
                             option={item}
-                            isSelected={selectedOption === item}
-                            onPress={() => onOptionSelected(item)}
                         />
                     ))
                 }

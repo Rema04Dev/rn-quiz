@@ -2,40 +2,44 @@ import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Pressable } fro
 import { QuestionCard } from "../components/question-card";
 import Feather from '@expo/vector-icons/Feather';
 
-import questions from '../questions';
 import { CustomButton } from "../components/custom-button";
-import { useState } from "react";
 import { Card } from "../components/card";
+import { useQuiz } from "../providers/quiz-provider";
 
 export function QuizScreen() {
-    const [questionIndex, setQuestionIndex] = useState(0);
+    const { 
+        currentQuestion, 
+        onNextQuestion, 
+        questions, 
+        questionIndex,
+        score
+    } = useQuiz();
 
-    const onNext = () => {
-        setQuestionIndex((prev) => prev + 1);
-    }
     return (
         <SafeAreaView style={styles.page}>
             <View style={styles.container}>
                 {/* Header */}
                 <View>
-                    <Text style={styles.title}>Question {questionIndex + 1}/5</Text>
+                    <Text style={styles.title}>Question {questionIndex + 1}/{questions.length}</Text>
                 </View>
 
                 {/* Body */}
                 {
-                    questions[questionIndex] ? (
+                    currentQuestion ? (
                         <View>
-                        <QuestionCard question={questions[questionIndex]} />
+                        <QuestionCard question={currentQuestion} />
                         <Text style={styles.time}>20 sec</Text>
                     </View>
-                    ) : (<Card title="Game over" />)
+                    ) : (<Card title="Game over">
+                        <Text>Correct answers: {score}/{questions.length}</Text>
+                    </Card>)
                 }
                
 
                 {/* Footer */}
                 <CustomButton
                     title="Next"
-                    onPress={onNext}
+                    onPress={onNextQuestion}
                     rightIcon={
                         <Feather
                             name="arrow-right"
