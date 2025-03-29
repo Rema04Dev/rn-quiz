@@ -1,45 +1,156 @@
 import { Question } from "./types";
 
 export default [
-    {
-      title: 'What does HTML stand for?',
-      options: [
-        'Hyper Text Markup Language',
-        'Highly Technical Markup Language',
-        'Hyperlinks and Text Markup Language',
-        'Hyper Tool Markup Language',
-      ],
-      correctAnswer: 'Hyper Text Markup Language',
-    },
-    {
-      title: 'Which language is primarily used for styling web pages?',
-      options: ['HTML', 'Python', 'CSS', 'JavaScript'],
-      correctAnswer: 'CSS',
-    },
-    {
-      title: "In programming, what is a 'bug'?",
-      options: [
-        "A feature that's not documented",
-        'An error in a program',
-        'A type of virus',
-        'An internet crawler',
-      ],
-      correctAnswer: 'An error in a program',
-    },
-    {
-      title: "What is the purpose of a 'for loop' in programming?",
-      options: [
-        'To repeat a block of code a limited number of times',
-        'To style a webpage',
-        'To declare variables',
-        'To create a new function',
-      ],
-      correctAnswer: 'To repeat a block of code a limited number of times',
-    },
-    {
-      title: 'Which symbol is used to denote an ID selector in CSS?',
-      options: ['#', '.', '!', '@'],
-      correctAnswer: '#',
-    },
-  ] as Question[];
-  
+  {
+    title: 'Что означает аббревиатура HTML?',
+    options: [
+      'Hyper Text Markup Language',
+      'Hyperlinks and Text Markup Language',
+      'Home Tool Markup Language',
+      'High Tech Markup Language',
+    ],
+    correctAnswer: 'Hyper Text Markup Language',
+  },
+  {
+    title: 'Какой язык в основном используется для стилизации веб-страниц?',
+    options: ['HTML', 'CSS', 'JavaScript', 'TypeScript'],
+    correctAnswer: 'CSS',
+  },
+  {
+    title: 'Что такое DOM (Document Object Model)?',
+    options: [
+      'Набор HTML-тегов',
+      'Программный интерфейс для работы с элементами страницы',
+      'База данных для хранения документов',
+      'Система управления версиями',
+    ],
+    correctAnswer: 'Программный интерфейс для работы с элементами страницы',
+  },
+  {
+    title: 'Какой символ в CSS используется для обращения к классу?',
+    options: ['.', '#', '@', '*'],
+    correctAnswer: '.',
+  },
+  {
+    title: 'Что делает метод event.preventDefault() в JavaScript?',
+    options: [
+      'Прерывает выполнение всей программы',
+      'Останавливает всплытие события',
+      'Отменяет действие события по умолчанию',
+      'Запускает перезагрузку страницы',
+    ],
+    correctAnswer: 'Отменяет действие события по умолчанию',
+  },
+  // {
+  //   title: 'Чем отличается "==" от "===" в JavaScript?',
+  //   options: [
+  //     'Ничем, оба оператора равны',
+  //     '"==" сравнивает только типы, а "===" только значения',
+  //     '"==" сравнивает значения без учёта типов, а "===" сравнивает и тип, и значение',
+  //     '"===" не существует в JavaScript',
+  //   ],
+  //   correctAnswer:
+  //     '"==" сравнивает значения без учёта типов, а "===" сравнивает и тип, и значение',
+  // },
+  // {
+  //   title: 'Какой тег HTML используется для создания строки в таблице?',
+  //   options: ['<tr>', '<th>', '<td>', '<table>'],
+  //   correctAnswer: '<tr>',
+  // },
+  // {
+  //   title: 'Что означает свойство "display: flex" в CSS?',
+  //   options: [
+  //     'Включает анимацию элементов',
+  //     'Выстраивает элементы в ряд или колонку с гибкой структурой',
+  //     'Делает элементы невидимыми',
+  //     'Ограничивает ширину элементов',
+  //   ],
+  //   correctAnswer: 'Выстраивает элементы в ряд или колонку с гибкой структурой',
+  // },
+  // {
+  //   title: 'Какая из следующих переменных в JavaScript видна только внутри блока {}?',
+  //   options: ['var', 'let', 'function', 'object'],
+  //   correctAnswer: 'let',
+  // },
+  // {
+  //   title: 'Какой метод массива в JavaScript изменяет текущий массив, добавляя новые элементы в конец?',
+  //   options: ['push()', 'pop()', 'slice()', 'concat()'],
+  //   correctAnswer: 'push()',
+  // },
+  // {
+  //   title: 'Что такое "относительное позиционирование" (position: relative) в CSS?',
+  //   options: [
+  //     'Абсолютное позиционирование элемента в окне браузера',
+  //     'Позиционирование элемента относительно ближайшего позиционированного родителя',
+  //     'Позиционирование элемента, сохраняющее исходное место в потоке, но позволяющее сдвиг',
+  //     'Плавающее позиционирование элемента',
+  //   ],
+  //   correctAnswer:
+  //     'Позиционирование элемента, сохраняющее исходное место в потоке, но позволяющее сдвиг',
+  // },
+  // {
+  //   title: 'Как называется модель, описывающая отступы, границы и поля элемента в CSS?',
+  //   options: [
+  //     'CSS Layout Model',
+  //     'Grid Model',
+  //     'Flex Model',
+  //     'Box Model (коробочная модель)',
+  //   ],
+  //   correctAnswer: 'Box Model (коробочная модель)',
+  // },
+  // {
+  //   title: 'Какой тег в HTML5 обозначает «основной контент» страницы?',
+  //   options: ['<section>', '<main>', '<article>', '<header>'],
+  //   correctAnswer: '<main>',
+  // },
+  // {
+  //   title: 'Что возвращает оператор typeof в JavaScript?',
+  //   options: [
+  //     'Тип переменной в виде строки',
+  //     'Значение переменной',
+  //     'Длину переменной',
+  //     'Массив свойств объекта',
+  //   ],
+  //   correctAnswer: 'Тип переменной в виде строки',
+  // },
+  // {
+  //   title: 'Какой атрибут в тегах <script> используется для подключения внешнего файла скрипта?',
+  //   options: ['href', 'link', 'src', 'path'],
+  //   correctAnswer: 'src',
+  // },
+  // {
+  //   title: 'Какой метод массива в JavaScript возвращает новый массив, не изменяя исходный?',
+  //   options: ['splice()', 'fill()', 'slice()', 'push()'],
+  //   correctAnswer: 'slice()',
+  // },
+  // {
+  //   title: 'Какой метод в JavaScript используется для отправки сетевых запросов (асинхронно)?',
+  //   options: ['setTimeout', 'fetch', 'setInterval', 'JSON.parse'],
+  //   correctAnswer: 'fetch',
+  // },
+  // {
+  //   title: 'Какой из следующих методов предназначен для остановки всплытия события?',
+  //   options: [
+  //     'stopPropagation()',
+  //     'preventDefault()',
+  //     'removeEventListener()',
+  //     'stopImmediatePropagation()',
+  //   ],
+  //   correctAnswer: 'stopPropagation()',
+  // },
+  // {
+  //   title: 'Что такое "media queries" в CSS?',
+  //   options: [
+  //     'Инструмент для проверки ошибок в коде CSS',
+  //     'Способ вставки изображений',
+  //     'Метод создания адаптивного дизайна под разные размеры экранов',
+  //     'Способ оптимизации загрузки шрифтов',
+  //   ],
+  //   correctAnswer: 'Метод создания адаптивного дизайна под разные размеры экранов',
+  // },
+  // {
+  //   title: 'Какой HTML-тег используется для семантического обозначения нижней части страницы или раздела?',
+  //   options: ['<section>', '<footer>', '<bottom>', '<aside>'],
+  //   correctAnswer: '<footer>',
+  // },
+] as Question[];

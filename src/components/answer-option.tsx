@@ -8,7 +8,7 @@ type AnswerOption = {
 export function AnswerOption({ option }: AnswerOption) {
     const { selectedOption, setSelectedOption } = useQuiz();
     const isSelected = option === selectedOption;
-
+    
     return (
         <Pressable
             style={[styles.container, isSelected ? styles.active : {}]}

@@ -5,15 +5,36 @@ import Feather from '@expo/vector-icons/Feather';
 import { CustomButton } from "../components/custom-button";
 import { Card } from "../components/card";
 import { useQuiz } from "../providers/quiz-provider";
+import { useEffect } from "react";
+import { useTimer } from "../hooks/use-timer";
+import LottieView from 'lottie-react-native';
+import party from '../../assets/party.json';
 
 export function QuizScreen() {
-    const { 
-        currentQuestion, 
-        onNextQuestion, 
-        questions, 
+    const {
+        currentQuestion,
+        onNextQuestion,
+        questions,
         questionIndex,
-        score
+        score,
+        bestScore
     } = useQuiz();
+
+    const { time, startTimer, clearTimer } = useTimer(10);
+
+    useEffect(() => {
+        startTimer();
+
+        return () => {
+            clearTimer();
+        };
+    }, [currentQuestion]);
+
+    useEffect(() => {
+        if (time <= 0) {
+            onNextQuestion();
+        };
+    }, [time])
 
     return (
         <SafeAreaView style={styles.page}>
@@ -27,14 +48,20 @@ export function QuizScreen() {
                 {
                     currentQuestion ? (
                         <View>
-                        <QuestionCard question={currentQuestion} />
-                        <Text style={styles.time}>20 sec</Text>
-                    </View>
-                    ) : (<Card title="Game over">
-                        <Text>Correct answers: {score}/{questions.length}</Text>
-                    </Card>)
+                            <QuestionCard question={currentQuestion} />
+                            <Text style={styles.time}>{time} sec</Text>
+                        </View>
+                    ) : (
+                        <>
+                            <LottieView source={party} style={StyleSheet.absoluteFill} autoPlay loop={false} />
+                            <Card title="Game over">
+                                <Text style={{ textAlign: 'center' }}>Correct answers: {score}/{questions.length}</Text>
+                                <Text style={{ textAlign: 'center' }}>Best score: {bestScore}</Text>
+                            </Card>
+                        </>
+                    )
                 }
-               
+
 
                 {/* Footer */}
                 <CustomButton
